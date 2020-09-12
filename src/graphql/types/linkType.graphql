@@ -1,0 +1,20 @@
+type Link {
+  id: ID!
+  description: String!
+  url: String!
+  postedBy: User
+  votes: [Vote!]!
+}
+
+type Query {
+  info: String!
+  feed: [Link!]!
+}
+
+type Mutation {
+  post(url: String!, description: String!): Link!
+}
+
+type Subscription {
+  newLink: Link
+}

@@ -1,0 +1,13 @@
+type Vote {
+  id: ID!
+  link: Link!
+  user: User!
+}
+
+type Mutation {
+  vote(linkId: ID!): Vote
+}
+
+type Subscription {
+  newVote: Vote
+}
