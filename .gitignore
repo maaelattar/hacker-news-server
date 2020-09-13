@@ -104,4 +104,8 @@ dist
 .tern-port
 
 .env
+
 prisma/migrations
+prisma/studio
+
+nodemon.json
