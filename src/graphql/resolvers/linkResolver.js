@@ -19,8 +19,6 @@ const Query = {
       orderBy: args.orderBy,
     });
 
-    console.log(links);
-
     const count = await context.prisma.link.count({ where });
 
     return {
@@ -52,8 +50,8 @@ const Subscription = {
       return payload;
     },
 
-    subscribe: () => {
-      pubsub.asyncIterator("NEW_LINK");
+    subscribe: (parent, args, context, info) => {
+      return context.pubsub.asyncIterator("NEW_LINK");
     },
   },
 };

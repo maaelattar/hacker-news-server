@@ -1,3 +1,4 @@
+const { getUserId } = require("../../utils");
 const Mutation = {
   vote: async function (parent, args, context, info) {
     const userId = getUserId(context);
@@ -27,13 +28,13 @@ const Mutation = {
 };
 
 const Subscription = {
-  newLink: {
+  newVote: {
     resolve: (payload) => {
       return payload;
     },
 
-    subscribe: () => {
-      pubsub.asyncIterator("NEW_VOTE");
+    subscribe: (parent, args, context, info) => {
+      return context.pubsub.asyncIterator("NEW_VOTE");
     },
   },
 };
