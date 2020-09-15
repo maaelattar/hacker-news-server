@@ -11,6 +11,10 @@ pubsub.ee.setMaxListeners(30); // raise max listeners in event emitter
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  engine: {
+    reportSchema: true,
+    variant: "current",
+  },
   context: ({ req }) => {
     return {
       req,
@@ -20,7 +24,9 @@ const server = new ApolloServer({
   },
 });
 
-server.listen().then(({ url, subscriptionsUrl }) => {
-  console.log(`Server ready at: ${url}`);
-  console.log(`Subscriptions ready at: ${subscriptionsUrl}`);
-});
+server
+  .listen({ port: process.env.PORT || 4000 })
+  .then(({ url, subscriptionsUrl }) => {
+    console.log(`Server ready at: ${url}`);
+    console.log(`Subscriptions ready at: ${subscriptionsUrl}`);
+  });
