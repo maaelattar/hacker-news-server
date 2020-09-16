@@ -1,4 +1,4 @@
-const { getUserId } = require("../../utils");
+const { getUserId, isUrl } = require("../../utils");
 const { GraphQLDateTime } = require("graphql-iso-date");
 
 const Query = {
@@ -31,6 +31,11 @@ const Query = {
 const Mutation = {
   post: function (parent, args, context, info) {
     const userId = getUserId(context);
+    if (!isUrl(args.url)) {
+      throw new Error(
+        "Invalid url argument, It must be like https://www.example.com"
+      );
+    }
     const newLink = context.prisma.link.create({
       data: {
         url: args.url,
