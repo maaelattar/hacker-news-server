@@ -2,7 +2,7 @@
 
 This is a documentation of hacker news clone graphql api, this api is built using small reusable feature based parts
 
-**_API is deployed here: [https://maa-hacker-news.herokuapp.com/](https://maa-hacker-news.herokuapp.com/)_**
+**_View Front End Repository Here: [https://github.com/maaelattar/hackernews-react-apollo](https://github.com/maaelattar/hackernews-react-apollo/)_**
 
 ## Table of Contents
 
@@ -16,11 +16,11 @@ This is a documentation of hacker news clone graphql api, this api is built usin
 
 ## Installation and Setup Instructions
 
-Clone down this repository. You will need `node` and `npm` installed globally on your machine.
+Clone down this repository. You will need `node` and `yarn` installed globally on your machine.
 
 **_Installation:_**
 
-`npm install`
+`yarn install`
 
 **_Database URL:_**
 
@@ -32,11 +32,11 @@ _Rename `nodemon.example.json` to `nodemon.json` and assign APP_SECRET to a stri
 
 **_To Start Server with Nodemon(Recomended in Development):_**
 
-`npm run dev`
+`yarn run dev`
 
 **_To Start Server:_**
 
-`npm start`
+`yarn start`
 
 **_To Visit App:_**
 
